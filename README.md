@@ -40,3 +40,8 @@ Puis il faut vérifier le token dans le controller avec la méthode isCsrfTokenV
 34) Ajout du champ options dans le formulaire de recherche dans Twig
 35) Ajout du filtre dans PropertyRepository.
 36) [DOCTRINE DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/dql-doctrine-query-language.html)
+37) Images à la une: installation de [VichUploader](https://github.com/dustin10/VichUploaderBundle)
+38) Remplir le fichier vich_uploader.yaml, modifier l'entité
+39) Ajouter un nouveau champ permettant d'ajouter une image dans PropertyType ainsi que dans Twig.
+40) A ce stade, les images ne sont pas encore persistées. (Voir known issues dans la doc de Vich): il faut ajouter un champ updated_at et modifier la méthode setImageFile().L'image devrait s'ajouter correctement.
+41) Pause à 10:40
