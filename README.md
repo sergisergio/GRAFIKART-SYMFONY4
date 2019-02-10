@@ -29,3 +29,14 @@ Puis il faut vérifier le token dans le controller avec la méthode isCsrfTokenV
 23) Inclure ce formulaire dans Twig.
 24) Voir la méthode getBlockPrefix() dans PropertySearchType (pour ne pas voir les varaibles dans l'URL).
 25) Passer le paramètre $search dans la méthode find() du controller et modifier en conséquence cette méthode dans PropertyRepository.
+26) Gestion des options: création d'une entité Option liée à l'entité Property (relation ManyToMany)
+27) Ajouter les options dans AdminPropertyController.
+28) Création d'un nouveau contrôleur pour gérer les options (bin/console make:crud Option)
+29) Dans la création d'un bien, on ajoute un champ select pour ajouter les options. Il faut donc modifier le PropertyType et ajouter un nouveau champ.
+30) EntityType (class Option, choice_label name, multiple = true)
+31) Faire très attention au owning-side et au inverse-side.
+32) Utilisation de select2.min.css et select2.min.js pour le champ des options
+33) Ajout d'un champ 'options' dans le PropertySearchType et donc ajout aussi dans l'entité PropertySearch
+34) Ajout du champ options dans le formulaire de recherche dans Twig
+35) Ajout du filtre dans PropertyRepository.
+36) [DOCTRINE DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/dql-doctrine-query-language.html)

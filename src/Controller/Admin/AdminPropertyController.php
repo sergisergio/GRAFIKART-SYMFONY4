@@ -8,6 +8,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Option;
 use App\Form\PropertyType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,11 +67,17 @@ class AdminPropertyController extends AbstractController
      */
     public function edit(Property $property, Request $request, ObjectManager $manager)
     {
+        //$option = new Option();
+        //$property->addOption($option);
+
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
+            //dd($option);
+            //$manager->persist($property);
             $manager->flush();
             $this->addFlash('success', 'Bien modifié avec succès');
             return $this->redirectToRoute('admin.property.index');
