@@ -54,5 +54,11 @@ Puis il faut vérifier le token dans le controller avec la méthode isCsrfTokenV
 48) Puis suppression de cette logique pour plutôt utiliser des évènements.
 49) [Lifecycle Events](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/events.html)
 50) Création de Listener/imageCacheSubscriber et mise en place des 2 events (preFlush et preUpdate). Ajout dans services.yaml.
-51) Mettre en place une image par défaut si un bien n'a pas d'image
+51) Mettre en place une image par défaut si un bien n'a pas d'image.
+52) Création du ContactType puis de la vue - Traitement du formulaire dans PropertyController.
+53) Dans src, création d'un dossier Notification puis d'une classe ContactNotification pour avoir une représentation de la personne que l'on va contacter.
+54) [GESTION DES EMAILS](https://symfony.com/doc/current/email.html)
+55) Pour tester les mails en local, voir Maildev.
+56) Utilisation de cette classe de notification dans le controller.
+57) Utilisation d'un template Email [mjml](https://mjml.io/)
 
