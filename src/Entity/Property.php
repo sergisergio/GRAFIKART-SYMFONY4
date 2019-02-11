@@ -34,7 +34,7 @@ class Property
 
     /**
      * @var string|null
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $filename;
 
@@ -347,7 +347,7 @@ class Property
     /**
      * @param null|string $filename
      */
-    public function setFilename(?string $filename): void
+    public function setFilename(?string $filename)
     {
         $this->filename = $filename;
     }
