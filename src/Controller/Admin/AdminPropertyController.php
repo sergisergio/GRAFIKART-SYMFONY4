@@ -8,11 +8,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Option;
 use App\Form\PropertyType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
@@ -51,6 +49,7 @@ class AdminPropertyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $manager->persist($property);
             $manager->flush();
             $this->addFlash('success', 'Bien ajouté avec succès');
@@ -74,7 +73,6 @@ class AdminPropertyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
 
             //dd($option);
             //$manager->persist($property);

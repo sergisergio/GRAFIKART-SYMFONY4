@@ -22,14 +22,14 @@ Puis il faut vérifier le token dans le controller avec la méthode isCsrfTokenV
 16) Pour les fixtures, on ajoute --append lors du chargement pour ne pas vider la BDD.
 17) Utiliser UserPasswordEncoderInterface pour chiffrer le mot de passe.
 18) (Pagination )[https://packagist.org/packages/knplabs/knp-paginator-bundle]
-19) Filtrer les biens: création d'une entité PropertySearch non reliée à Doctrine.
+19) ***Filtrer les biens***: création d'une entité PropertySearch non reliée à Doctrine.
 20) Puis création d'un formulaire relié à cette classe (mettre le chemin complet pour l'entité).
 21) Passer la méthode en get et csrf_protection en false dans la méthode configureOptions().
 22) Puis utiliser ce formulaire dans le controller.
 23) Inclure ce formulaire dans Twig.
 24) Voir la méthode getBlockPrefix() dans PropertySearchType (pour ne pas voir les varaibles dans l'URL).
 25) Passer le paramètre $search dans la méthode find() du controller et modifier en conséquence cette méthode dans PropertyRepository.
-26) Gestion des options: création d'une entité Option liée à l'entité Property (relation ManyToMany)
+26) ***Gestion des options***: création d'une entité Option liée à l'entité Property (relation ManyToMany)
 27) Ajouter les options dans AdminPropertyController.
 28) Création d'un nouveau contrôleur pour gérer les options (bin/console make:crud Option)
 29) Dans la création d'un bien, on ajoute un champ select pour ajouter les options. Il faut donc modifier le PropertyType et ajouter un nouveau champ.
@@ -40,8 +40,19 @@ Puis il faut vérifier le token dans le controller avec la méthode isCsrfTokenV
 34) Ajout du champ options dans le formulaire de recherche dans Twig
 35) Ajout du filtre dans PropertyRepository.
 36) [DOCTRINE DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/dql-doctrine-query-language.html)
-37) Images à la une: installation de [VichUploader](https://github.com/dustin10/VichUploaderBundle)
+37) ***Images à la une***: installation de [VichUploader](https://github.com/dustin10/VichUploaderBundle)
 38) Remplir le fichier vich_uploader.yaml, modifier l'entité
 39) Ajouter un nouveau champ permettant d'ajouter une image dans PropertyType ainsi que dans Twig.
 40) A ce stade, les images ne sont pas encore persistées. (Voir known issues dans la doc de Vich): il faut ajouter un champ updated_at et modifier la méthode setImageFile().L'image devrait s'ajouter correctement.
-41) Pause à 10:40
+41) Voir Les namers: VichUploaderBundle\Resources\doc\namers.md (pour générer une clé pour chaque fichier qui a été uploadé). Si on uploade un nouveau fichier, l'ancien fichier est supprimé !
+42) Mise en place de l'image dans Twig ({{ vich_uploader_asset(property, 'imageFile') }})
+43) Installation d'un Bundle pour le redimensionnement des images: [liip/imagine-bundle](https://github.com/liip/LiipImagineBundle)
+44) Configuration du fichier Yaml et utilisation du filtre imagine_filter dans Twig.
+45) Par contre, les images sont gardées dans le cache: il va donc falloir les supprimer...
+46) Vérifier les contraintes dans l'entité pour téléchager le fichier ( @Assert\Image(....)).
+47) Traitement de la logique de suppression des images en cache dans les controllers grâce à CacheManager et UploaderHelper.
+48) Puis suppression de cette logique pour plutôt utiliser des évènements.
+49) [Lifecycle Events](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/events.html)
+50) Création de Listener/imageCacheSubscriber et mise en place des 2 events (preFlush et preUpdate). Ajout dans services.yaml.
+51) Mettre en place une image par défaut si un bien n'a pas d'image
+
